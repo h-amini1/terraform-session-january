@@ -3,7 +3,7 @@ resource "aws_instance" "main" {
   instance_type = var.instance_type
   vpc_security_group_ids = [ aws_security_group.main_sg.id ] # a list of strings
   tags = {
-    name = "development"
+    name = var.env 
   }                         # tags need (map) that shows with ({})
 }
 

@@ -10,3 +10,9 @@ variable "ami" {
     description = "Indecates the enviroment"
     default = "dev"
 }
+ variable "env" {
+    type = string 
+    description = " indictes the enviorment"
+    default = "dev"
+
+ }

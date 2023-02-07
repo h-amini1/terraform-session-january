@@ -8,7 +8,7 @@ variable "instance_type" {
 variable "ami" {
     type = string
     description = "Indecates the enviroment"
-    default = "dev"
+    default = "ami-0036b4598ccd42565"
 }
  variable "env" {
     type = string 

@@ -1,10 +1,10 @@
 resource "aws_instance" "main" {
-  ami           = "ami-0036b4598ccd42565"
-  instance_type = "t2.micro"
+  ami           = var.ami # string + hard coded value
+  instance_type = var.instance_type
   vpc_security_group_ids = [ aws_security_group.main_sg.id ] # a list of strings
   tags = {
     name = "development"
-  } # tags need (map) that shows with ({})
+  }                         # tags need (map) that shows with ({})
 }
 
 
@@ -30,3 +30,8 @@ resource "aws_instance" "main" {
 
 # "aws_security_group.main_sg.id" = static or ahrd coded value (String)
 # aws_security_group.main_sg.id = reference to resource >> (string, number , boolean)
+
+
+
+
+# Reference to imput variable

@@ -2,6 +2,9 @@ resource "aws_instance" "main" {
   ami           = "ami-0036b4598ccd42565"
   instance_type = "t2.micro"
   vpc_security_group_ids = [ aws_security_group.main_sg.id ] # a list of strings
+  tags = {
+    name = "development"
+  } # tags need (map) that shows with ({})
 }
 
 
@@ -18,9 +21,10 @@ resource "aws_instance" "main" {
 
 
 # Reference to resource?
-# 1. First labal, 
-# 2. Second lable
-# 3, 
+# 1. First labal = aws_security_group 
+# 2. Second lable = main_sg
+# 3. second_lable = id
+# 3. attribute reference 
 # How to reference and declear and ID 
 
 

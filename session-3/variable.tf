@@ -5,7 +5,7 @@ variable "instance_type" {
     default = "t2.micro"
 }
 
-vafriable "ami" {
+variable "ami" {
     type = string
     description = "Indecates the enviroment"
     default = "dev"

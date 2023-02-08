@@ -5,7 +5,8 @@ How to create vpc?
 - 1. cidr_block (required)
 - 2. most of the Argument is optional depence on your code
 
-
+Error.
+1. No configuration file to be persent
 
 How to create private subnet and subnet?
 Hot to use terraform open source module to do same thing in the source.

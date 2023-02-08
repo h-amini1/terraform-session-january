@@ -1,5 +1,5 @@
 resource "aws_internet_gateway" "Internet-gw" {
-  vpc_id = aws_vpc.vpc-04a7a3a1cb5b9d528.id
+  vpc_id = aws_vpc.task_vpc.id
 }
 
 resource "aws_instance" "foo" {

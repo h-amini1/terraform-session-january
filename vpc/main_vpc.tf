@@ -50,13 +50,7 @@ resource "aws_subnet" "private_subnet_name2" {
 
 # min Internal Gateway for VPC
 # https;//registry.terraform.io/prociders/hashicorp/aws/latest/docs/resources/internet_gateway
-resource "aws_internet_gateway" "igw" {
-  vpc_id = aws.main.vpc_id
 
-  tags = {
-    Name = "Main IGW"
-  }
-}
 
 
 

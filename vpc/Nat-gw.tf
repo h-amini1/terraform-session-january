@@ -1,5 +1,5 @@
 resource "aws_nat_gateway" "task_ngw" {
-  allocation_id = aws_eip.elasticIP.id # Asking for Elastic IP
+  allocation_id = aws_eip.eip.allocationid # Asking for Elastic IP
   subnet_id     = aws_subnet.pub_sub_b.id
 
   tags = {

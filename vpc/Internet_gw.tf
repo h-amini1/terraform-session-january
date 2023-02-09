@@ -5,5 +5,4 @@ resource "aws_internet_gateway" "Internet-gw" {
     tags = {
     Name = "task_ig"
 
-  depends_on = [aws_internet_gateway.Internet-gw]
 }

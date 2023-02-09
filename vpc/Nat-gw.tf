@@ -1,12 +1,9 @@
-resource "aws_nat_gateway" "task_ngw" {
-  allocation_id = aws_eip.nat_gateway_eip.id # Asking for Elastic IP
-  subnet_id     = aws_subnet.pub_sub_b.id
+resource "aws_nat_gateway" "task_nat_gw" {
+  allocation_id = aws_eip.vpc_eip.allocation_id
+  subnet_id     = aws_subnet.pub_sub_a.id
 
   tags = {
-    Name = "NATgw"
+    Name = "terra_nat_gw"
   }
 
-  # To ensure proper ordering, it is recommended to add an explicit dependency
-  # on the Internet Gateway for the VPC.
-  
 }

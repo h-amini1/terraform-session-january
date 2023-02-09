@@ -1,5 +1,5 @@
 resource "aws_instance" "main" {
-  ami           = var.ami # string + hard coded value
+  ami           = data.aws_ami.amazon_linux_2.id  # string + hard coded value
   instance_type = var.instance_type
   vpc_security_group_ids = [ aws_security_group.main_sg.id ] # a list of strings
   tags = {

@@ -3,9 +3,29 @@ resource "aws_instance" "main" {
   instance_type = var.instance_type
   vpc_security_group_ids = [ aws_security_group.main_sg.id ] # a list of strings
   tags = {
-    name = var.env 
+    name = var.env-instance
   }                         # tags need (map) that shows with ({})
 }
+
+# dev-instance
+# qu-instance
+# stage-instance
+# prod-instance
+
+resource "aws_instance" "main_function" {
+  ami           = data.aws_ami.amazon_linux_2.id  # string + hard coded value
+  instance_type = var.instance_type
+  vpc_security_group_ids = [ aws_security_group.main_sg.id ] # a list of strings
+  tags = {
+    name = var.env-frontend-instance
+  }                         # tags need (map) that shows with ({})
+}
+
+# dev-frontend-instance
+# qu-frontend-instance
+# stage-frontend-instance
+# prod-frontend-instance
+
 
 
 # Refernces:

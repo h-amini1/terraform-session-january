@@ -4,6 +4,7 @@ resource "aws_instance" "main" {
   vpc_security_group_ids = [ aws_security_group.main_sg.id ] # a list of strings
   tags = {
     Name = "${var.env}-instance"
+    Name1 = format("$s-instance",var.env)  # result would be =>> dev-instance
   }                         # tags need (map) that shows with ({})
 }
 
@@ -18,6 +19,7 @@ resource "aws_instance" "main_function" {
   vpc_security_group_ids = [ aws_security_group.main_sg.id ] # a list of strings
   tags = {
     Name = "${var.env}-frontend-instance"
+    Name1 = format("$s-frontent-instance",var.env)
   }                         # tags need (map) that shows with ({})
 }
 

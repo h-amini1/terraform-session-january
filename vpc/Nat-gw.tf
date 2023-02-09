@@ -1,8 +1,9 @@
+# resource "aws_nat_gateway" "task_nat_gw" {
+#   allocation_id = aws_eip.vpc_eip.allocation_id
+#   subnet_id     = aws_subnet.pub_sub_a.id
 
-resource "aws_nat_gateway""homework_nat_gateway"{
-    subnet_id = aws_subnet.aws_subnet.pub_sub_b.id
-    connectivity_type = "public"
-    tags ={
-        Name = "nat_gateway_name"
-    }
-}
+#   tags = {
+#     Name = "terra_nat_gw"
+#   }
+
+# }

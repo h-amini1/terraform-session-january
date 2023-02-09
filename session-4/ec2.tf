@@ -3,7 +3,7 @@ resource "aws_instance" "main" {
   instance_type = var.instance_type
   vpc_security_group_ids = [ aws_security_group.main_sg.id ] # a list of strings
   tags = {
-    name = "${var.env}-instance"
+    Name = "${var.env}-instance"
   }                         # tags need (map) that shows with ({})
 }
 
@@ -17,7 +17,7 @@ resource "aws_instance" "main_function" {
   instance_type = var.instance_type
   vpc_security_group_ids = [ aws_security_group.main_sg.id ] # a list of strings
   tags = {
-    name = "${var.env}-frontend-instance"
+    Name = "${var.env}-frontend-instance"
   }                         # tags need (map) that shows with ({})
 }
 

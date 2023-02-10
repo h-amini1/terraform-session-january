@@ -1,49 +1,49 @@
-resource "aws_vpc" "task_vpc" {     
-  cidr_block       = "10.0.0.0/16"
-  tags = {
-    Name = "terraform_vpc"
-  }
-} 
-# Public and private Subnet
-# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet
+# resource "aws_vpc" "task_vpc" {     
+#   cidr_block       = "10.0.0.0/16"
+#   tags = {
+#     Name = "terraform_vpc"
+#   }
+# } 
+# # Public and private Subnet
+# # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet
 
-resource "aws_subnet" "public_a" {
-  vpc_id     = aws_vpc.task_vpc.id
-  cidr_block = "10.0.1.0/24"
-  availability_zone = "us-west-1a"
-  tags = {
-    Name = "public_sub_a"
-  }
-}
+# resource "aws_subnet" "public_a" {
+#   vpc_id     = aws_vpc.task_vpc.id
+#   cidr_block = "10.0.1.0/24"
+#   availability_zone = "us-west-1a"
+#   tags = {
+#     Name = "public_sub_a"
+#   }
+# }
 
 
 
-resource "aws_subnet" "public_b" {
-  vpc_id     = aws_vpc.task_vpc.id
-  cidr_block = "10.0.2.0/24"
-  availability_zone = "us-west-1b"
-  tags = {
-    Name = "public_sub_b"
-  }
-}
+# resource "aws_subnet" "public_b" {
+#   vpc_id     = aws_vpc.task_vpc.id
+#   cidr_block = "10.0.2.0/24"
+#   availability_zone = "us-west-1b"
+#   tags = {
+#     Name = "public_sub_b"
+#   }
+# }
 
-resource "aws_subnet" "private_a" {
-  vpc_id     = aws_vpc.task_vpc.id
-  cidr_block = "10.0.11.0/24"
-  availability_zone = "us-west-1a"
-  tags = {
-    Name = "private_sub_a"
-  }
-}
+# resource "aws_subnet" "private_a" {
+#   vpc_id     = aws_vpc.task_vpc.id
+#   cidr_block = "10.0.11.0/24"
+#   availability_zone = "us-west-1a"
+#   tags = {
+#     Name = "private_sub_a"
+#   }
+# }
 
-resource "aws_subnet" "private_b" {
-  vpc_id     = aws_vpc.task_vpc.id
-  cidr_block = "10.0.12.0/24"
-  availability_zone = "us-west-1b"
-  tags = {
-    Name = "private_sub_b"
-  }
-}
+# resource "aws_subnet" "private_b" {
+#   vpc_id     = aws_vpc.task_vpc.id
+#   cidr_block = "10.0.12.0/24"
+#   availability_zone = "us-west-1b"
+#   tags = {
+#     Name = "private_sub_b"
+#   }
+# }
 
 # # Main Internet Gateway for VPC
 # # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gatway

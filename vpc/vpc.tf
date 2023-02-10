@@ -80,42 +80,42 @@ resource "aws_nat_gateway" "nat" {
   }
 }
 
-# # Route Table for Public Subnet
-# # https://registry.terraform.io/provdiers/hashicorp/aws/latest/docs/resources/route_table
+# Route Table for Public Subnet
+# https://registry.terraform.io/provdiers/hashicorp/aws/latest/docs/resources/route_table
 
-# resource "aws_route_table" "public" {
-#   vpc_id = aws_vpc.task_vpc.id
+resource "aws_route_table" "public" {
+  vpc_id = aws_vpc.task_vpc.id
 
-#   route {
-#     cidr_block = "0.0.0.0/0"
-#     gateway_id = aws_internet_gateway.igw.id
-#   }
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.igw.id
+  }
 
-#   tags = {
-#     Name = "Public Route Table"
-#   }
-# }
+  tags = {
+    Name = "Public Route Table"
+  }
+}
 
-# # Association between Pulicc Subnet and Pulic Route Table
-# # https://registry.terraform.io/provdiers/hashicorp/aws/latest/docs/resources/route_table_association
+# Association between Pulicc Subnet and Pulic Route Table
+# https://registry.terraform.io/provdiers/hashicorp/aws/latest/docs/resources/route_table_association
 
-# resource "aws_route_table_association" "public_a" {
-#   subnet_id      = aws_subnet.pulic_a.id
-#   route_table_id = aws_route_table.public.id
-# }
-# resource "aws_route_table_association" "public_b" {
-#   subnet_id      = aws_subnet.pulic_b.id
-#   route_table_id = aws_route_table.public.id
-# }
+resource "aws_route_table_association" "public_a" {
+  subnet_id      = aws_subnet.pulic_a.id
+  route_table_id = aws_route_table.public.id
+}
+resource "aws_route_table_association" "public_b" {
+  subnet_id      = aws_subnet.pulic_b.id
+  route_table_id = aws_route_table.public.id
+}
 
-# # Association betwen Private Subnet and Private Route Table
-# # https://registry.terraform.io/provdiers/hashicorp/aws/latest/docs/resources/route_table_association
+# Association betwen Private Subnet and Private Route Table
+# https://registry.terraform.io/provdiers/hashicorp/aws/latest/docs/resources/route_table_association
 
-# resource "aws_route_table_association" "private_a" {
-#   subnet_id      = aws_subnet.private_a.id
-#   route_table_id = aws_route_table.private.id
-# }
-# resource "aws_route_table_association" "private_b" {
-#   subnet_id      = aws_subnet.private_b.id
-#   route_table_id = aws_route_table.private.id
-# }
+resource "aws_route_table_association" "private_a" {
+  subnet_id      = aws_subnet.private_a.id
+  route_table_id = aws_route_table.private.id
+}
+resource "aws_route_table_association" "private_b" {
+  subnet_id      = aws_subnet.private_b.id
+  route_table_id = aws_route_table.private.id
+}

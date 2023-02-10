@@ -102,11 +102,11 @@ resource "aws_route_table" "public" {
 # https://registry.terraform.io/provdiers/hashicorp/aws/latest/docs/resources/route_table_association
 
 resource "aws_route_table_association" "public_a" {
-  subnet_id      = aws_subnet.pulic_a.id
+  subnet_id      = aws_subnet.public_a.id
   route_table_id = aws_route_table.public.id
 }
 resource "aws_route_table_association" "public_b" {
-  subnet_id      = aws_subnet.pulic_b.id
+  subnet_id      = aws_subnet.public_b.id
   route_table_id = aws_route_table.public.id
 }
 

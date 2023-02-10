@@ -110,6 +110,17 @@ resource "aws_route_table_association" "public_b" {
   route_table_id = aws_route_table.public.id
 }
 
+resource "aws_route_table" "private" {
+  vpc_id = aws_vpc.task_vpc.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.nat.id
+  }
+  tags = {
+    Name = "Private"
+  }
+}
 # Association betwen Private Subnet and Private Route Table
 # https://registry.terraform.io/provdiers/hashicorp/aws/latest/docs/resources/route_table_association
 

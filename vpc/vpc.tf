@@ -43,16 +43,16 @@ resource "aws_subnet" "private_b" {
   }
 }
 
-# # Main Internet Gateway for VPC
-# # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gatway
+# Main Internet Gateway for VPC
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gatway
 
-# resource "aws_internet_gateway" "igw" {
-#   vpc_id = aws_vpc.task_vpc.id
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.task_vpc.id
 
-#   tags = {
-#     Name = "Internet_IGW"
-#   }
-# }
+  tags = {
+    Name = "Internet_IGW"
+  }
+}
 
 # # Elastic IP for NAT Gatewa
 # # https://registry.terraform.io/provdiers/hashicorp/aws/latest/docs/resources/eip

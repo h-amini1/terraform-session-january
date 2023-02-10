@@ -73,7 +73,7 @@ resource "aws_eip""nat_gateway_eip"{
 
 resource "aws_nat_gateway" "nat" {
   allocation_id = aws_eip.nat_eip.allocation_id
-  subnet_id     = aws_subnet.public_sub_a.id
+  subnet_id     = aws_subnet.public_sub_b.id
 
   tags = {
     Name = "task ngw"

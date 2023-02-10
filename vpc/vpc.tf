@@ -54,18 +54,18 @@ resource "aws_internet_gateway" "igw" {
   }
 }
 
-# # Elastic IP for NAT Gatewa
-# # https://registry.terraform.io/provdiers/hashicorp/aws/latest/docs/resources/eip
-# # Allocate Elastic IP Address
-# # Terraform allow elastic ip
+# Elastic IP for NAT Gatewa
+# https://registry.terraform.io/provdiers/hashicorp/aws/latest/docs/resources/eip
+# Allocate Elastic IP Address
+# Terraform allow elastic ip
 
-# resource "aws_eip""nat_gateway_eip"{
-#     vpc        = true
-#     depends_on = [aws_internet_gateway.igw]
-#     tags = {
-#         Name = "eip"
-#     }
-# }
+resource "aws_eip""nat_gateway_eip"{
+    vpc        = true
+    depends_on = [aws_internet_gateway.igw]
+    tags = {
+        Name = "eip"
+    }
+}
 
 
 # # Main NAT Gateway for VPC with pulic subnet

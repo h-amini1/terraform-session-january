@@ -17,3 +17,5 @@ variable "ports"{
     description = "List of ports"
     default = ["22"]
 }
+
+# element(list)

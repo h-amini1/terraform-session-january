@@ -2,8 +2,8 @@ resource "aws_security_group" "main_sg" {
   name        = "main"
   description = "Allow SSH inbound traffic"
 
-resource "aws_security_group_rule" "allow_all" {
-  type              = "egress"
+resource "aws_security_group_rule" "ingresss" {
+  type              = "ingress"
   to_port           = element( var.ports,0 )
   protocol          = "tcp"
   from_port         = element( var.ports,0 )
@@ -11,11 +11,8 @@ resource "aws_security_group_rule" "allow_all" {
   cidr_blocks = ["0.0.0.0/0"]
 }
 
-resource "aws_security_group" "main_sg" {   
-  name        = "main"
-  description = "Allow SSH inbound traffic"
 
-resource "aws_security_group_rule" "allow_all" {
+resource "aws_security_group_rule" "egress" {
   type              = "egress"
   to_port           = 0
   protocol          = "-1"

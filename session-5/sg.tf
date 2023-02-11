@@ -5,9 +5,9 @@ resource "aws_security_group" "main_sg" {
 resource "aws_security_group_rule" "ingresss" {
   count = 2
   type              = "ingress"
-  to_port           = element( var.ports,0 )
+  to_port           = element( var.ports, count.index )
   protocol          = "tcp"
-  from_port         = element( var.ports,0 )
+  from_port         = element( var.ports, count.index )
   security_group_id = aws_security_group.main_sg.id
   cidr_blocks = ["0.0.0.0/0"]
 }

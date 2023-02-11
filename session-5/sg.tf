@@ -3,6 +3,7 @@ resource "aws_security_group" "main_sg" {
   description = "Allow SSH inbound traffic"
 }
 resource "aws_security_group_rule" "ingresss" {
+  count = 2
   type              = "ingress"
   to_port           = element( var.ports,0 )
   protocol          = "tcp"

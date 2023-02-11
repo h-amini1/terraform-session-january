@@ -11,3 +11,4 @@ resource "aws_instance" "main" {
 
 
 # count is a meta argument, help you with replication the resources
+# count is working as INDEX number

@@ -11,3 +11,9 @@ variable "instance_type" {
     default = "dev"
 
  }
+
+variable "ports"{
+    type = list(string)
+    description = "List of ports"
+    default = ["22"]
+}

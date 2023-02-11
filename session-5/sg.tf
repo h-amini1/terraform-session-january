@@ -1,7 +1,7 @@
 resource "aws_security_group" "main_sg" {   
   name        = "main"
   description = "Allow SSH inbound traffic"
-
+}
 resource "aws_security_group_rule" "ingresss" {
   type              = "ingress"
   to_port           = element( var.ports,0 )

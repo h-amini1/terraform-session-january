@@ -1,5 +1,5 @@
 # variable for DIDR block and name tag's for VPC
-variable "vpc_cidr-16" {
+variable "vpc_cidr" {
   type = string
   description = "defines CIDR block"
   default = "10.0.0.0/16"

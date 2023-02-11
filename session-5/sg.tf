@@ -1,4 +1,4 @@
-resource "aws_security_group" "main_sg" {   
+resource "aws_security_group" "main" {   
   name        = "main-sg"
   description = "Allow SSH inbound traffic"
 }

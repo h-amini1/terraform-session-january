@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "terraform-session-backend-hassan"
-    key    = "session-5/filestructure/qa/terraform.tfstate" # where does terraform need to store you file. Path or
+    key    = "session-5/filestructure/dev/terraform.tfstate" # where does terraform need to store you file. Path or
     region = "us-west-1"
     dynamodb_table = "terraform-session-sep-lock" # Lock Table
   }

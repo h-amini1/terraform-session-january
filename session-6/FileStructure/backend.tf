@@ -9,3 +9,5 @@ terraform {
 
 # 1. If you want to isolate infrastructure and resusrce your configuration files, you must isolate the backend
 # 2. Isolating backend (terraform.tfstate) = Isolating environment
+# 3. backend at the time 
+# 4. No variables in key of Backend

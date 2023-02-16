@@ -26,7 +26,7 @@ variable "index" {
     type = string
     default = "0"
 }
-variable "manage_by" {
+variable "managed_by" {
     type = string
     default = "terraform"
 }

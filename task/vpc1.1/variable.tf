@@ -61,3 +61,8 @@ variable "cidr_blocks" {
   default = "0.0.0.0/0"
 }
 
+variable "ports"{
+    type = list(string)
+    description = "List of ports"
+    default = ["22, 80, 3306"]
+}

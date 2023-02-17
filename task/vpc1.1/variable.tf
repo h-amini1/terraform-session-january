@@ -5,14 +5,14 @@ variable "env" {
   default = "dev"
 }
 
-variable "cidr_block_all" {
-  type = list(string)
+variable "cidr_blocks" {
+  type = string
   description = "defines CIDR block for all traffic"
   default = "0.0.0.0/0"
 }
 
 variable "cidr_block_vpc" {
-  type = list(string)
+  type = string
   description = "defines CIDR block for vpc"
   default = "0.0.0.0/16"
 }

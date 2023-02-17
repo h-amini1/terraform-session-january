@@ -11,4 +11,15 @@ variable "cidr_blocks" {
   default = ["0.0.0.0/0", "10.0.0.0/16", "10.0.1.0/24", "10.0.2.0/24", "10.0.11.0/24", "10.0.12.0/24"]
 }
 
+variable "ports"{
+    type = list(string)
+    description = "List of ports"
+    default = ["22, 80, 3306"]
+}
 
+# Imput Variable
+variable "instance_type" {
+    type = string
+    description = " This is an instance type for EC2 instances"
+    default = "t2.micro"
+}

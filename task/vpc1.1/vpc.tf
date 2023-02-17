@@ -20,7 +20,7 @@ resource "aws_subnet" "public_subnets" {
 
 
 
-resource "aws_subnet" "private_a" {
+resource "aws_subnet" "private_subnets" {
   count      = length(var.Availibity_Zones)
   vpc_id     = aws_vpc.task_vpc.id
   cidr_block = element(var.private_subnets, count.index)
@@ -102,5 +102,5 @@ resource "aws_route_table" "private" {
 resource "aws_route_table_association" "private_subnets" {
   count         = length(var.Availibity_Zones)
   subnet_id      = element(aws_subnet.private_subnets.*.id, count.index)
-  route_table_id = element(aws_route_table.private_subnet.*.id, count.index)
+  route_table_id = element(aws_route_table.private.*.id, count.index)
 }

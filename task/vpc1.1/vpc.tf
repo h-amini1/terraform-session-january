@@ -1,6 +1,5 @@
 resource "aws_vpc" "task_vpc" { 
-  count = 1  
-  cidr_block       = element( var.cidr_blocks, count.index )
+  cidr_block       = var.cidr_block_vpc
   instance_tenancy = "default"
 
   tags = {
@@ -11,7 +10,7 @@ resource "aws_vpc" "task_vpc" {
 # Main Internet Gateway for VPC
 
 resource "aws_internet_gateway" "igw" {
-  vpc_id = element( aws_vpc.task_vpc.id, count.index )
+  vpc_id = aws_vpc.task_vpc.id
 
   tags = {
     Name = "${var.env}-Internet_IGW"

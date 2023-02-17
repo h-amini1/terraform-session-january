@@ -1,6 +1,6 @@
 resource "aws_vpc" "task_vpc" { 
   count = 1  
-  cidr_block       = element( var.cidr_block, count.index )
+  cidr_block       = element( var.cidr_blocks, count.index )
   instance_tenancy = "default"
 
   tags = {
@@ -22,7 +22,7 @@ resource "aws_internet_gateway" "igw" {
 resource "aws_subnet" "public_a" {
   count = 2
   vpc_id     = aws_vpc.task_vpc.id
-  cidr_block = element( var.cidr_block, count.index ) 
+  cidr_block = element( var.cidr_blocks, count.index ) 
   availability_zone = data.aws_availability_zones.available_zones.name[0]
   map_public_ip_on_launch = true
   tags = {
@@ -33,7 +33,7 @@ resource "aws_subnet" "public_a" {
 resource "aws_subnet" "public_b" {
   count = 3
   vpc_id     = aws_vpc.task_vpc.id
-  cidr_block = element( var.cidr_block, count.index )
+  cidr_block = element( var.cidr_blocks, count.index )
   availability_zone = data.aws_availability_zones.available_zones.name[1]
   map_public_ip_on_launch = true
 
@@ -49,7 +49,7 @@ resource "aws_route_table" "public" {
 
   route {
     count = 0
-    cidr_block = element( var.cidr_block, count.index )     # Destination is anywhere
+    cidr_block = element( var.cidr_blocks, count.index )     # Destination is anywhere
     gateway_id = aws_internet_gateway.igw.id
   }
 
@@ -63,7 +63,7 @@ resource "aws_route_table" "public" {
 resource "aws_subnet" "private_a" {
   count = 4
   vpc_id     = aws_vpc.task_vpc.id
-  cidr_block = element( var.cidr_block, count.index )
+  cidr_block = element( var.cidr_blocks, count.index )
   availability_zone =  data.aws_availability_zones.available_zones.name[0]
   tags = {
     Name = "${var.env}-prv-sub-a"
@@ -73,7 +73,7 @@ resource "aws_subnet" "private_a" {
 resource "aws_subnet" "private_b" {
   count = 5
   vpc_id     = aws_vpc.task_vpc.id
-  cidr_block = element( var.cidr_block, count.index )
+  cidr_block = element( var.cidr_blocks, count.index )
   availability_zone = data.aws_availability_zones.available_zones.name[1]
   map_public_ip_on_launch = false      # No public IP address
   tags = {
@@ -120,7 +120,7 @@ resource "aws_route_table" "private" {
 
   route {
     count = 0
-    cidr_block = element( var.cidr_block, count.index )
+    cidr_block = element( var.cidr_blocks, count.index )
     nat_gateway_id = aws_nat_gateway.nat.id
   }
   tags = {

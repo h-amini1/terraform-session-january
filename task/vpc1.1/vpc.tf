@@ -56,7 +56,7 @@ resource "aws_eip" "nat_eip"{
 
 resource "aws_nat_gateway" "nat"{
   allocation_id = aws_eip.nat_eip.id
-  subnet_id     = data.aws_subnet.public_subnets[0].id
+  subnet_id     = aws_subnet.public_subnets[0].id
 
   tags = {
     Name = "${var.env}-gw NAT"
@@ -82,8 +82,8 @@ resource "aws_route_table" "public" {
 
 resource "aws_route_table_association" "public_subnets" {
   coutn          = length(var.Availibity_Zones)
-  subnet_id      = element( aws_subnet.public_subnets.*.id, count.index)
-  route_table_id = element( aws_route_table.public.*.id, count.index )
+  subnet_id      = element( aws_subnet.public_subnets.*.id#, count.index)
+  route_table_id = element( aws_route_table.public.*.id#, count.index )
 }
 
 resource "aws_route_table" "private" {
@@ -101,6 +101,6 @@ resource "aws_route_table" "private" {
 
 resource "aws_route_table_association" "private_subnets" {
   coutn          = length(var.Availibity_Zones)
-  subnet_id      = element( aws_subnet.private_subnets.*.id, count.index )
-  route_table_id = element( aws_route_table.private_subnet.*.id, count.index )
+  subnet_id      = element( aws_subnet.private_subnets.*.id#, count.index )
+  route_table_id = element( aws_route_table.private_subnet.*.id#, count.index )
 }

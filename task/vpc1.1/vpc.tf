@@ -101,6 +101,6 @@ resource "aws_route_table" "private" {
 
 resource "aws_route_table_association" "private_subnets" {
  # count         = length(var.Availibity_Zones)
-  subnet_id      = aws_subnet.private_subnets.id, [count.index]
-  route_table_id = aws_route_table.private_subnet.id, [count.index]
+  subnet_id      = aws_subnet.private_subnets.id [count.index]
+  route_table_id = aws_route_table.private_subnet.id [count.index]
 }

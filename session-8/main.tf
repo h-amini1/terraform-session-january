@@ -23,6 +23,12 @@ resource "aws_instance" "main" {
       "sudo cp /tmp/index.thml /var/www/html/index.html"
     ]
   }
+   connection {
+      type = "ssh"
+      user = "ec2-user"      #Remote server user
+      host = self.public_ip     # self means all this block
+      private_key = file("~/.ssh/id_rsa")
+    }
 }
 # ssh user@ip it automatically checks public key on the remote machine, 
 

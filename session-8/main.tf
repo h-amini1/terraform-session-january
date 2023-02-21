@@ -39,3 +39,9 @@ resource "aws_key_pair" "terraform_server" {
 output "instance_ip" {
   value = aws_instance.main.public_ip
 }
+
+resource "null_resource" "local_script" {
+  provisioner "local-exec" {
+command = "echo 'hello from the local server' >> local.txt"
+  }
+}

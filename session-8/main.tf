@@ -20,7 +20,7 @@ resource "aws_instance" "main" {
       "sudo yum install httpd -y",
       "sudo systemctl enable httpd",
       "sudo systemctl start httpd",
-      "sudo cp /tmp/index.thml /var/www/html/index.html"
+      "sudo cp /tmp/index.html /var/www/html/index.html"
     ]
   }
    connection {

@@ -8,5 +8,5 @@ resource "aws_instance" "main" {
 
 resource "aws_key_pair" "terraform_server" {
   key_name = "Terraform-Server-key"
-  public_key = flie("~/.ssh/id_rsa.pub")
+  public_key = file("~/.ssh/id_rsa.pub")
 }

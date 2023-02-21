@@ -15,10 +15,21 @@ resource "aws_instance" "main" {
       private_key = file("~/.ssh/id_rsa")
     }
   }
+  provisioner "remote-exec" {
+    inline = [
+      "sudo yum install httpd -y",
+      "sudo systemctl enable httpd",
+      "sudo systemctl start httpd",
+      "sudo cp /tmp/index.thml /var/www/html/index.html"
+    ]
+  }
 }
-# ssh user@ip it automatically checks public key on 
+# ssh user@ip it automatically checks public key on the remote machine, 
 
 resource "aws_key_pair" "terraform_server" {
   key_name = "Terraform-Server-key"
   public_key = file("~/.ssh/id_rsa.pub")
+}
+output "instance_ip" {
+  value = aws_instance.main.public_ip
 }

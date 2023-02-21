@@ -8,6 +8,12 @@ resource "aws_security_group" "main_sg" {
     protocol         = "tcp"  # string
     cidr_blocks      = ["0.0.0.0/0"] # list of strings
   }
+   ingress {
+    from_port        = 80
+    to_port          = 80
+    protocol         = "tcp"  # string
+    cidr_blocks      = ["0.0.0.0/0"] # list of strings
+  }
    egress {
     from_port        = 0
     to_port          = 0

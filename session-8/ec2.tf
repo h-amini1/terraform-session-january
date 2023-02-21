@@ -12,7 +12,7 @@ resource "aws_instance" "main" {
       type = "ssh"
       user = "ec2-user"      #Remote server user
       host = self.public_ip     # self means all this block
-      provate_key = file("~/.ssh/id_rsa")
+      private_key = file("~/.ssh/id_rsa")
     }
   }
 }

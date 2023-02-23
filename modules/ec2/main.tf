@@ -1,5 +1,5 @@
 resource "aws_instance" "main" {
-  ami           = data.aws_ami.amazon_linux_2.id  
+  ami           = var.ami  
   instance_type = var.instance_type
 
   tags = {

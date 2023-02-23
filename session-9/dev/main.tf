@@ -14,3 +14,8 @@ module "ec2_instance" {
   ami = "ami-0036b4598ccd42565"
   instance_type = "t2.micro"
 }
+
+module "ec2-sg" {
+  source = "../../modules/sg"
+  env = "dev"
+}

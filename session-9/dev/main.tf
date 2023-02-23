@@ -13,9 +13,12 @@ module "ec2_instance" {
   env = "dev"
   ami = "ami-0036b4598ccd42565"
   instance_type = "t2.micro"
+  sg = [module.ec2_sg.id]    # Module.Module_Name.Attribute
 }
 
 module "ec2-sg" {
   source = "../../modules/sg"
   env = "dev"
 }
+
+# Reference to child module

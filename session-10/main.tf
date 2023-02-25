@@ -8,8 +8,8 @@ module "ec2_instance" {
     instance_type = "t2.micro"
 }
 
-# Terraform Reposotyoy 
-module "vpc" {
-  source = "terraform-aws-module/vpc/aws"
-  version = "3.18.0"
-}
+# # Terraform Reposotyoy 
+# module "vpc" {
+#   source = "terraform-aws-module/vpc/aws"
+#   version = "3.18.0"
+# }

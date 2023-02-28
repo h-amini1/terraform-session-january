@@ -1,5 +1,5 @@
 resource "aws_sqs_queue" "main" {
-  name = "${terraform.wokspace}-sqs"
+  name = "${terraform.workspace}-sqs"
 }
 
 # terraform.workspace = workspace name
